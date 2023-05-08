@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.dropdown-toggle::after, .dropend .dropdown-toggle::after{
+    border: none;
+  }
+  .fontawesomeDown {
+  width: 10px;
+  height: auto;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  }
+  .fontawesomeRight {
+  width: 7px;
+  height: auto;
+  margin-left: 5rem;
+  vertical-align: middle;
+  }
+  .fontProducts {
+  width: 15px;
+  height: auto;
+  margin-right: 2rem;
+  vertical-align: middle;
+  }
+  
+.dropend .dropdown-toggle{
+    margin-left: 0.5em;
+    height:30px;
+    line-height: normal;
+    font-size: 16px;
+    
+}
+.nav-item .dropdown-menu .dropdown-item, .dropend .dropdown-menu .dropdown-item{
+    font-size: 16px;
+   
+}
+
+.dropend:hover{
+    background-color:rgba(147, 155, 169, 0.264);
+
+}
+.dropend:hover > .dropdown-menu{
+    display: block;
+    margin-top: .125em;
+    margin-left: .125em;
+
+    
+}
+ .dropend:hover > .dropdown-menu{
+    position: absolute;
+    left: 100%;
+    top: 0;
+    
+}
+
+.d-flex .Signup{
+    margin-right:50px;
+    border-radius: 20px;
+}
+
+.d-flex .Login{
+    border-radius: 20px;
+}
+
+.d-flex .Products{
+margin-left: 150px;
+background-color: transparent;
+border:none;
+border-radius:20px;
+color: black;
+
+}
+.d-flex .dropdown{
+    width: 250px;
+   
+}
+.d-flex .dropdown-menu{
+  
+    width: 250px;
+    height: 280px;
+    overflow-y: auto;
+    
+}
+.d-flex .dropdown-item{
+    padding: 20px;
+    border-bottom: 0.5px solid #e1e1e197;
+    
+}
+.d-flex .Products:hover{
+background-color: rgb(192, 201, 209);
+border-radius: 20px;
+}
+
+@media screen and (max-width:990px){
+    .dropend:hover > .dropdown-menu{
+        position: absolute;
+        left: 100%;
+        top: 0;
+        
+    }
+    .dropdown .dropdown-menu{
+        width: fit-content;
+    }
+
+    .dropend .dropdown-toggle{
+        margin-left:1em;
+        height:30px;
+        line-height: normal;
+    }
+
+    .d-flex .btn{
+       position: relative;
+    }
+    .d-flex .Products{
+    right: 13px;
+    }
+
+    .d-flex .btns{
+       left: 500px;
+       bottom:130px;
+    }       
+}
+/* popup login-signup */
+
+.main{
+    position: absolute;
+    left: 3px;
+    top: 58px;
+    background-color: white;
+    height:90vh;
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    flex-direction: row;
+    
+    
+   }
+.pop-button{
+    font-size: xx-large;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding-bottom: 40px;
+    border-radius:0;
+}
+.main .arrow2{
+    padding-left: 50px;
+}
+ .close{
+    position:absolute;
+    top: 60px;
+    right: 80px;
+    height: 30px;
+ }
+
+
+

@@ -1,0 +1,21 @@
+.mainForm{
+    position: absolute;
+    left: 2px;
+    top: 60px;
+    background-color: white;
+    height:90vh;
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+   }
+   
+.mainForm .signup-form{
+    border-radius:20px;
+}
+   
+.mainForm .login-form{
+    border-radius:10px;
+}
+   

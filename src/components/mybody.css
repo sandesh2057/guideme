@@ -1,0 +1,78 @@
+
+
+.myPage{ 
+    background: url(/public/images/1431669.jpg) no-repeat center center fixed; 
+    background-size: cover;
+    height: 100vh;
+  }
+  h1{
+   font-size: 60px;
+  }
+  p{
+   padding-top: 20px;
+  }
+  .paragraph{
+   margin-left: 10px;
+  }
+
+
+.container{
+   background-color:rgba(244, 241, 241, 0.7);
+   display: flex;
+   flex-direction: column;
+   height: 500px;
+   width:600px;
+   margin-right:120vh;
+   margin-top: 40px;
+   padding-left: 50px;
+   padding-top: 100px;
+   justify-content:space-evenly;
+   border-radius:20px;
+
+   
+   
+ 
+}
+ .pageBox{
+    display:flex;
+    flex-direction: column;
+   
+    
+ }
+ .signGuide{
+height: 50px;
+width: 250px;
+line-height:35px;
+padding-right: 20px;
+
+
+ }
+ .downloadApp{
+height: 50px;
+width: 250px;
+line-height:35px;
+
+ }
+ 
+ .bodyicon{
+   height: 20px;
+ }
+
+ .pageBox a{
+   display: flex;
+   flex-direction: row;
+
+ }
+ .btnbox{
+   background-color: black;
+   color:white;
+   margin: 10px;
+   font-size: 17px;
+   justify-content: space-around;
+   align-items: center;
+   justify-items: center;
+   border-radius: 10px;
+ 
+  }
+ 
+ 
