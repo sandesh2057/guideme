@@ -1,0 +1,63 @@
+
+.main-Footer{
+    background-color: black;
+    color: whitesmoke;
+    height:100%;
+    display: flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    padding-left: 100px;
+   
+}
+.main-logo{
+   font-size:x-large;
+}
+.main-items{
+    display: flex;
+    flex-direction: row;
+    
+}
+.main-items .footerall{
+    margin-left: -30px;
+    margin-right: 200px;
+}
+
+
+.main-items ul{
+    list-style-type: none;
+}
+.footer-main{
+    font-size: large;
+}
+.download-logo{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+}
+.download-logo .applogo{
+    height: 50px;
+    width: 150px;
+}
+.download-logo .playlogo{
+    height: 160px;
+    width: 150px;
+    margin-right: 50px;
+}
+
+.main-items .footer-item{
+    color: whitesmoke;
+    text-decoration-line: none;
+    font-size:15px;
+    
+}
+.main-items .footer-item:hover{
+    color: rgb(197, 193, 193);
+}
+.main-items ul li{
+    margin-bottom: 15px;
+}
+.copyright{
+    color: rgb(205, 204, 204);
+    font-weight: lighter;
+    font-size:small;
+}
