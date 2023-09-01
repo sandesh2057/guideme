@@ -15,10 +15,16 @@ import { Link } from 'react-router-dom';
 
 
 export default function Navbar(props) {
+
+  const[popdown, setDown]= useState("");
   const[popup, setPop]= useState("");
   const[text, setText]= useState("");
   const[data, setData]= useState("");
 
+  // for small screen popup 
+const handlepopdown =()=>{
+  setDown(true);
+}
   const handlelogin = ()=>{
     setPop(true);
     setText("Log in");
@@ -31,14 +37,17 @@ export default function Navbar(props) {
   }
   const handleclose = ()=>{
     setPop(false);
+    setDown(false);
   }
   return (
 <>
 <nav className="navbar navbar-expand-lg navbar-light ">
 <div className="container-fluid">
 <Link className="navbar-brand" to="/guideme">{props.title}</Link>
-<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span className="navbar-toggler-icon"></span>
+
+{/* nav bar smallscreen dropdown icon */}
+<button className="navbar-toggler" type="button" data-bs-toggle="collapse"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span className="navbar-toggler-icon" onClick={handlepopdown}></span>
 </button>
 <div className="collapse navbar-collapse" id="navbarSupportedContent">
   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -51,9 +60,9 @@ export default function Navbar(props) {
         <li><Link className="dropdown-item" to="/">Our offerings</Link></li>
         <li><Link className="dropdown-item" to="/">How GuideMe works</Link></li>
         <li className="nav-item dropend">
-      <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <Link className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         {props.explore}  <FontAwesomeIcon className="fontawesomeRight" icon={faChevronRight}/>
-      </a>
+      </Link>
       <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
         <li><Link className="dropdown-item" to="/">Guides near me</Link></li>
         <li><Link className="dropdown-item" to="/">Popular routes</Link></li>
@@ -79,10 +88,14 @@ export default function Navbar(props) {
   <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts"  icon={faFutbol} />Adventure</button></li>
 </ul>
 </div>
-<Link className="btn btns Login" to="/" role="button" onClick={handlelogin} >Log in</Link>
-<Link className="btn btns Signup" to="/" role="button" onClick={handlesignin} >Sign up</Link>
   </form>
 </div>
+
+{/* login sign up buttons */}
+
+<Link className="btn btns Login" to="/" role="button" onClick={handlelogin} >Log in</Link>
+<Link className="btn btns Signup" to="/" role="button" onClick={handlesignin} >Sign up</Link>
+
 </div>
 </nav>
 
@@ -93,6 +106,14 @@ export default function Navbar(props) {
   <Link className="btn  pop-button popEarn" to={data} role="button" onClick={handleclose}>{text} to guide & earn <FontAwesomeIcon className="arrow2"  icon={faArrowRight} /></Link>
   <Link className="btn pop-button popTravel" to={data} role="button" onClick={handleclose}>{text} to travel with us <FontAwesomeIcon className="arrow2"  icon={faArrowRight} /></Link>
   </div>:""}
+
+
+{/* small screen dropdown */}
+{popdown?
+ <div class="dropdown-main">
+   <FontAwesomeIcon className="close" onClick={handleclose} icon={faCircleXmark} />
+ </div>:""}
+
 </>
 );
 }
