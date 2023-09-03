@@ -115,17 +115,49 @@ border-radius: 20px;
 
 /* dropdown small screen */
 
-
 .dropdown-main{
+    padding: 0;
+    margin: 0;
     position: absolute;
-    left: 3px;
-    top: 58px;
     background-color: white;
-    height:90vh;
-    width:100%;
+    height:100vh;
+    width:100vw;
+   
+ }
+
+ .dropdown-main .dropdownlink{
+    color: black;
+    font-size:30px;
+   font-family: sans-serif;
+   text-decoration: none;
+ 
+ }
+ 
+
+ .companyul{
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+   
+
+ }
+ .exploreul{
+    display: flex;
+    flex-direction: column;
+  
+ }
+
+ .dropdownul, li{
+    list-style: none;
+    margin-top: 10px;
 
  }
 
+.dropdownexplore{
+    color: black;
+    text-decoration: none;
+    margin-left: 1;
+}
     
 /* popup login-signup */
 

@@ -17,11 +17,20 @@ import { Link } from 'react-router-dom';
 export default function Navbar(props) {
 
   const[popdown, setDown]= useState("");
+  const[menu, setMenu]= useState("false"); // smallscreen company menu
+  const[submenu, setSubmenu]= useState("false"); // smallscreen explore menu
   const[popup, setPop]= useState("");
   const[text, setText]= useState("");
   const[data, setData]= useState("");
 
-  // for small screen popup 
+ const companyopen =()=>{
+setMenu(!menu);
+ }
+ const exploreopen =()=>{
+setSubmenu(!submenu);
+ }
+
+
 const handlepopdown =()=>{
   setDown(true);
 }
@@ -39,6 +48,7 @@ const handlepopdown =()=>{
     setPop(false);
     setDown(false);
   }
+  
   return (
 <>
 <nav className="navbar navbar-expand-lg navbar-light ">
@@ -112,6 +122,51 @@ const handlepopdown =()=>{
 {popdown?
  <div class="dropdown-main">
    <FontAwesomeIcon className="close" onClick={handleclose} icon={faCircleXmark} />
+  <ul className="dropdownul">
+  <li className="dropdownli">
+      <Link className="dropdownlink dropdowncompany" to="/"  onClick={companyopen} >
+        {props.company} <FontAwesomeIcon className="fontawesomeDown" icon={faChevronDown}/></Link>
+  {menu?
+      <ul className="companyul">
+        <li><Link className="dropdown-item" to="/">About us</Link></li>
+        <li><Link className="dropdown-item" to="/">Our offerings</Link></li>
+        <li><Link className="dropdown-item" to="/">How GuideMe works</Link></li>
+        <li className="dropendli">
+        <li><Link className="dropdown-item" to="/"  onClick={exploreopen}>
+        {props.explore}  <FontAwesomeIcon className="fontawesomeDown" icon={faChevronDown}/></Link>
+         </li>
+      <ul className="exploreul" >
+      {submenu?
+      <>
+        <li><Link className="dropdown-item" to="/">Guides near me</Link></li>
+        <li><Link className="dropdown-item" to="/">Popular routes</Link></li>
+        <li><Link className="dropdown-item" to="/">Hotels near me</Link></li>
+      </>
+        :""}
+          </ul>
+    </li>
+          </ul>
+:""}
+    </li>
+    <li className="dropdownli">
+      <Link className="dropdownlink dropdownhelp" to="/">{props.help}</Link>
+    </li>
+  </ul>
+  <form className="dropdown-flex">
+    <div className="dropdowndiv">
+<button className="btn dropdownProducts" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+  Products
+</button>
+<ul className="productsul" >
+  <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts" icon={faHouse}/> Home</button></li>
+  <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts" icon={faPlane}/> Tour</button></li>
+  <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts" icon={faBed}/> Stay</button></li>
+  <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts" icon={faUtensils}/> Eat</button></li>
+  <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts"  icon={faFutbol} />Adventure</button></li>
+</ul>
+</div>
+  </form>
+   
  </div>:""}
 
 </>
