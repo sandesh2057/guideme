@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faChevronDown} from '@fortawesome/free-solid-svg-icons'
+import {faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons'
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
 import {faHouse} from '@fortawesome/free-solid-svg-icons'
 import {faBed} from '@fortawesome/free-solid-svg-icons'
@@ -16,23 +16,27 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
 
-  const[popdown, setDown]= useState("");
+  const[popdown, setDown]= useState("false");
   const[menu, setMenu]= useState("false"); // smallscreen company menu
   const[submenu, setSubmenu]= useState("false"); // smallscreen explore menu
+  const[subproducts, setSubproducts]= useState("false"); // smallscreen explore menu
   const[popup, setPop]= useState("");
   const[text, setText]= useState("");
   const[data, setData]= useState("");
 
  const companyopen =()=>{
 setMenu(!menu);
+
  }
  const exploreopen =()=>{
 setSubmenu(!submenu);
  }
-
-
+ const productsopen =()=>{
+setSubproducts(!subproducts);
+ }
+ 
 const handlepopdown =()=>{
-  setDown(true);
+  setDown(!popdown);
 }
   const handlelogin = ()=>{
     setPop(true);
@@ -121,11 +125,10 @@ const handlepopdown =()=>{
 {/* small screen dropdown */}
 {popdown?
  <div class="dropdown-main">
-   <FontAwesomeIcon className="close" onClick={handleclose} icon={faCircleXmark} />
   <ul className="dropdownul">
   <li className="dropdownli">
       <Link className="dropdownlink dropdowncompany" to="/"  onClick={companyopen} >
-        {props.company} <FontAwesomeIcon className="fontawesomeDown" icon={faChevronDown}/></Link>
+        {props.company} <FontAwesomeIcon className="smallfontdowncompany" icon={faChevronDown} size="xs" /></Link>
   {menu?
       <ul className="companyul">
         <li><Link className="dropdown-item" to="/">About us</Link></li>
@@ -133,7 +136,7 @@ const handlepopdown =()=>{
         <li><Link className="dropdown-item" to="/">How GuideMe works</Link></li>
         <li className="dropendli">
         <li><Link className="dropdown-item" to="/"  onClick={exploreopen}>
-        {props.explore}  <FontAwesomeIcon className="fontawesomeDown" icon={faChevronDown}/></Link>
+        {props.explore}  <FontAwesomeIcon className="smallfontdownexplore"  icon={faChevronDown} size="lg" /></Link>
          </li>
       <ul className="exploreul" >
       {submenu?
@@ -151,22 +154,25 @@ const handlepopdown =()=>{
     <li className="dropdownli">
       <Link className="dropdownlink dropdownhelp" to="/">{props.help}</Link>
     </li>
-  </ul>
-  <form className="dropdown-flex">
-    <div className="dropdowndiv">
-<button className="btn dropdownProducts" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  Products
-</button>
+  
+ <div className="dropdowndiv">
+<li className=" dropdownlink dropdownproducts" onClick={productsopen}>
+  Products <FontAwesomeIcon className="smallfontdownproducts"  icon={faChevronDown} size="xs" />
+</li>
 <ul className="productsul" >
-  <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts" icon={faHouse}/> Home</button></li>
-  <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts" icon={faPlane}/> Tour</button></li>
-  <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts" icon={faBed}/> Stay</button></li>
-  <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts" icon={faUtensils}/> Eat</button></li>
-  <li><button className="dropdown-item" type="button"><FontAwesomeIcon className="fontProducts"  icon={faFutbol} />Adventure</button></li>
-</ul>
+{subproducts?
+<>
+  <li><Link className="dropdown-item" to="/"><FontAwesomeIcon className="fontProducts" icon={faHouse}/> Home</Link></li>
+  <li><Link className="dropdown-item" to="/"><FontAwesomeIcon className="fontProducts" icon={faPlane}/> Tour</Link></li>
+  <li><Link className="dropdown-item" to="/"><FontAwesomeIcon className="fontProducts" icon={faBed}/> Stay</Link></li>
+  <li><Link className="dropdown-item" to="/"><FontAwesomeIcon className="fontProducts" icon={faUtensils}/> Eat</Link></li>
+  <li><Link className="dropdown-item" to="/"><FontAwesomeIcon className="fontProducts"  icon={faFutbol} />Adventure</Link></li>
+</>
+  :""}
+  </ul>
 </div>
-  </form>
-   
+
+  </ul>
  </div>:""}
 
 </>
