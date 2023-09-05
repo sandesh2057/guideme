@@ -93,6 +93,8 @@ background-color: rgb(192, 201, 209);
 border-radius: 20px;
 }
 
+
+/* for screen around 990 */
 @media screen and (max-width:990px){
 
     .d-flex .Products{
@@ -111,7 +113,7 @@ border-radius: 20px;
        right: 150px;
     }
     
-}
+
 
 /* dropdown small screen */
 
@@ -217,4 +219,259 @@ border-radius: 20px;
     right: 80px;
     height: 30px;
  } 
+}
 
+ /* for screen around 700  */
+@media screen and (max-width:700px){
+
+    .d-flex .Products{
+    right: 13px;
+    }
+
+    .Signup{
+       position: absolute;
+       top: 10px;
+       right: 80px;
+    }
+
+     .Login{
+       position: absolute;
+       top: 10px;
+       right: 150px;
+    }
+    
+
+
+/* dropdown small screen */
+
+.dropdown-main{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: white;
+    height:100vh;
+    width:100vw;
+   
+ }
+
+ .dropdown-main .dropdownlink{
+    color: black;
+    font-size:30px;
+   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: bolder;
+   text-decoration: none;
+ 
+ }
+ 
+
+ .companyul{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    
+   
+
+ }
+ .exploreul{
+    display: flex;
+    flex-direction: column;
+  
+ }
+
+ .productsul{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+ }
+
+ .dropdownul li{
+    list-style: none;
+    margin-top: 10px;
+    font-size: large;
+   
+   
+ }
+
+.dropdownexplore{
+    color: black;
+    text-decoration: none;
+    margin-left: 1;
+    
+}
+
+
+/* for fachevrondown for company and products */
+.smallfontdowncompany{
+    margin-left: 280px;
+}
+/* for fachevrondown for explore cause it is inside of company */
+.smallfontdownexplore{
+    margin-left: 315px;
+}
+/* for fachevrondown for explore cause it is inside of company */
+.smallfontdownproducts{
+    margin-left: 290px;
+}
+
+/* popup login-signup */
+
+.main{
+    position: absolute;
+    left: 3px;
+    top: 58px;
+    background-color: white;
+    height:90vh;
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    flex-direction: row;
+    
+    
+  }
+.pop-button{
+    font-size: xx-large;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding-bottom: 40px;
+    border-radius:0;
+}
+.main .arrow2{
+    padding-left: 50px;
+}
+ .close{
+    position:absolute;
+    top: 60px;
+    right: 80px;
+    height: 30px;
+ } 
+
+}
+ /* for screen around 400 such as mobile phones */
+@media screen and (max-width:440px){
+
+    .d-flex .Products{
+    right: 13px;
+    }
+
+    .Signup{
+       position: absolute;
+       top: 10px;
+       right: 80px;
+    }
+
+     .Login{
+       position: absolute;
+       top: 10px;
+       right: 150px;
+    }
+    
+
+
+/* dropdown small screen */
+
+.dropdown-main{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: white;
+    height:100vh;
+    width:100vw;
+   
+ }
+
+ .dropdown-main .dropdownlink{
+    color: black;
+    font-size:30px;
+   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: bolder;
+   text-decoration: none;
+ 
+ }
+ 
+
+ .companyul{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    
+   
+
+ }
+ .exploreul{
+    display: flex;
+    flex-direction: column;
+  
+ }
+
+ .productsul{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+ }
+
+ .dropdownul li{
+    list-style: none;
+    margin-top: 10px;
+    font-size: large;
+   
+   
+ }
+
+.dropdownexplore{
+    color: black;
+    text-decoration: none;
+    margin-left: 1;
+    
+}
+
+
+/* for fachevrondown for company and products */
+.smallfontdowncompany{
+    margin-left: 180px;
+}
+/* for fachevrondown for explore cause it is inside of company */
+.smallfontdownexplore{
+    margin-left: 215px;
+}
+/* for fachevrondown for explore cause it is inside of company */
+.smallfontdownproducts{
+    margin-left: 188px;
+}
+
+/* popup login-signup */
+
+.main{
+    position: absolute;
+    left: 3px;
+    top: 58px;
+    background-color: white;
+    height:90vh;
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    flex-direction: row;
+    
+    
+  }
+.pop-button{
+    font-size: xx-large;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding-bottom: 40px;
+    border-radius:0;
+}
+.main .arrow2{
+    padding-left: 50px;
+}
+ .close{
+    position:absolute;
+    top: 60px;
+    right: 80px;
+    height: 30px;
+ } 
+
+}
