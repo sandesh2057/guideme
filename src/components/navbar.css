@@ -93,8 +93,7 @@ background-color: rgb(192, 201, 209);
 border-radius: 20px;
 }
 
-
-/* for screen around 990 */
+/* for screen around 990px */
 @media screen and (max-width:990px){
 
     .d-flex .Products{

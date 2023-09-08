@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect} from 'react'
 import './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons'
@@ -16,6 +16,24 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
 
+  // yo usemediaQuery, matches ko kaam vaneko sano screen huda kholeko popdown thulo screen huda aafai hatne ho
+  const matches = useMediaQuery('(max-width: 990px)')
+
+  function useMediaQuery( query, defaultMatches = window.matchMedia(query)){
+  const [matches, setMatches] = useState(defaultMatches)
+    useEffect(() =>{
+      const media = window.matchMedia(query);
+      if (media.matches !== matches) {setMatches(media.matches)};
+      const listener = () => setMatches(media.matches);
+      media.addListener(listener);
+      return() => media.removeListener(listener)
+
+    }, [query, matches])
+
+    return matches;
+  }
+
+
   const[popdown, setDown]= useState("false");
   const[menu, setMenu]= useState("false"); // smallscreen company menu
   const[submenu, setSubmenu]= useState("false"); // smallscreen explore menu
@@ -23,6 +41,8 @@ export default function Navbar(props) {
   const[popup, setPop]= useState("");
   const[text, setText]= useState("");
   const[data, setData]= useState("");
+
+
 
  const companyopen =()=>{
 setMenu(!menu);
@@ -37,6 +57,7 @@ setSubproducts(!subproducts);
  
 const handlepopdown =()=>{
   setDown(!popdown);
+
 }
   const handlelogin = ()=>{
     setPop(true);
@@ -123,12 +144,14 @@ const handlepopdown =()=>{
 
 
 {/* small screen dropdown */}
+{matches ?
+ <> 
 {popdown?
  <div class="dropdown-main">
   <ul className="dropdownul">
   <li className="dropdownli">
       <Link className="dropdownlink dropdowncompany" to="/"  onClick={companyopen} >
-        {props.company} <FontAwesomeIcon className="smallfontdowncompany" icon={faChevronDown} size="xs" /></Link>
+        {props.company} {menu ? <FontAwesomeIcon className="smallfontdowncompany" icon={faChevronUp} size="xs" /> : <FontAwesomeIcon className="smallfontdowncompany" icon={faChevronDown} size="xs" /> }</Link>
   {menu?
       <ul className="companyul">
         <li><Link className="dropdown-item" to="/">About us</Link></li>
@@ -136,7 +159,7 @@ const handlepopdown =()=>{
         <li><Link className="dropdown-item" to="/">How GuideMe works</Link></li>
         <li className="dropendli">
         <li><Link className="dropdown-item" to="/"  onClick={exploreopen}>
-        {props.explore}  <FontAwesomeIcon className="smallfontdownexplore"  icon={faChevronDown} size="lg" /></Link>
+        {props.explore} { submenu ? <FontAwesomeIcon className="smallfontdownexplore" icon={faChevronUp} size="lg" />:<FontAwesomeIcon className="smallfontdownexplore"  icon={faChevronDown} size="lg" />}</Link>
          </li>
       <ul className="exploreul" >
       {submenu?
@@ -157,7 +180,7 @@ const handlepopdown =()=>{
   
  <div className="dropdowndiv">
 <li className=" dropdownlink dropdownproducts" onClick={productsopen}>
-  Products <FontAwesomeIcon className="smallfontdownproducts"  icon={faChevronDown} size="xs" />
+  Products {subproducts ? <FontAwesomeIcon className="smallfontdownproducts"  icon={faChevronUp} size="xs" /> : <FontAwesomeIcon className="smallfontdownproducts"  icon={faChevronDown} size="xs" />}
 </li>
 <ul className="productsul" >
 {subproducts?
@@ -175,9 +198,11 @@ const handlepopdown =()=>{
   </ul>
  </div>:""}
 
-</>
-);
+ </> :""}
+</>);
 }
+
+
 Navbar.propTypes = {
   title: PropTypes.string,
   company:PropTypes.string,
