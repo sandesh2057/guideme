@@ -20,7 +20,7 @@ export default function Navbar(props) {
   const matches = useMediaQuery('(max-width: 990px)')
 
   function useMediaQuery( query, defaultMatches = window.matchMedia(query)){
-  const [matches, setMatches] = useState(defaultMatches)
+  const [matches, setMatches] = useState(defaultMatches);
     useEffect(() =>{
       const media = window.matchMedia(query);
       if (media.matches !== matches) {setMatches(media.matches)};
@@ -41,8 +41,6 @@ export default function Navbar(props) {
   const[popup, setPop]= useState("");
   const[text, setText]= useState("");
   const[data, setData]= useState("");
-
-
 
  const companyopen =()=>{
 setMenu(!menu);
@@ -138,14 +136,14 @@ const handlepopdown =()=>{
   {popup?
 <div className="main">
    <FontAwesomeIcon className="close" onClick={handleclose} icon={faCircleXmark} />
-  <Link className="btn  pop-button popEarn" to={data} role="button" onClick={handleclose}>{text} to guide & earn <FontAwesomeIcon className="arrow2"  icon={faArrowRight} /></Link>
-  <Link className="btn pop-button popTravel" to={data} role="button" onClick={handleclose}>{text} to travel with us <FontAwesomeIcon className="arrow2"  icon={faArrowRight} /></Link>
+  <Link className="btn  pop-button popEarn" to={data} role="button" onClick={handleclose}>{text} to guide & earn <FontAwesomeIcon className= "arrow2"  icon={faArrowRight} /></Link>
+  <Link className="btn pop-button popTravel" to={data} role="button" onClick={handleclose}>{text} to travel with us <FontAwesomeIcon className= "arrow2"  icon={faArrowRight} /></Link>
   </div>:""}
 
 
 {/* small screen dropdown */}
 {matches ?
- <> 
+  <> 
 {popdown?
  <div class="dropdown-main">
   <ul className="dropdownul">
